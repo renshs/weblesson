@@ -4,8 +4,8 @@ from flask import url_for
 app = Flask(__name__)
 
 
-@app.route('/promotion_image')
-def promomtion():
+@app.route('/choice/<planet_name>')
+def choice(planet_name):
     return f'''<!doctype html>
                     <html lang="en">
                       <head>
@@ -16,26 +16,24 @@ def promomtion():
                         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
                         crossorigin="anonymous">
                         <link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
-                        <title>Колонизация</title>
+                        <title>Варианты выбора</title>
                       </head>
                       <body>
-                        <h1>Жди нас, Марс!</h1>
-                        <img width="200" height="222" src="{url_for('static', filename='img/mars_planet_PNG26.png')}" alt="здесь должна была быть картинка, 
-                      но не нашлась">
+                        <h1>Жди нас, {planet_name}!</h1>
                         <div class="alert alert-dark" role="alert">
-                        Человечество вырастет из детства.
+                        Эта планета самая лучшая.
                         </div>
                         <div class="alert alert-success" role="alert">
                         Человечеству мала одна планета.
                         </div>
                         <div class="alert alert-dark" role="alert">
-                        Мы сделаем обитаемыми безжизненные пока планеты.
+                        Её можно сделать обитаемой.
                         </div>
                         <div class="alert alert-warning" role="alert">
-                        И начнем с Марса!
+                        Все на {planet_name}!
                         </div>
                         <div class="alert alert-danger" role="alert">
-                        Присоединяйся!
+                        Удачи!
                         </div>
                       </body>
                     </html>'''
